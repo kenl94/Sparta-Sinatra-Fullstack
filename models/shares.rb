@@ -1,4 +1,4 @@
-class Money
+class Shares
 
   attr_accessor :id, :stock_market, :market_cap, :stock_name, :stock_sybl
 
