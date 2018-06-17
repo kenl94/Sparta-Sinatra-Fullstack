@@ -39,20 +39,49 @@ class MoneyController < Sinatra::Base
 
   post '/money' do
     "create"
+
+    money = Money.new
+
+    money.money_amount = params[:money_amount]
+    money.currency = params[:currency]
+    money.currency_code = params[:currency_code]
+
+    money.save
+
+    redirect '/money'
   end
 
   get '/money/:id/edit' do
     "edit"
+    id = params[:id].to_i
 
-    erb :'edit.erb'
+    @money = Money.find id
+
+    erb :'money/edit'
   end
 
   put '/money/:id' do
-    "update"
+    id = params[:id].to_i
+
+    money = Money.find id
+
+    money.money_amount = params[:money_amount]
+    money.currency_code = params[:currency_code]
+    money.currency = params[:currency]
+
+    money.save
+
+    redirect '/money'
+
+
   end
 
   delete '/money/:id' do
-    "destroy"
+    id = params[:id].to_i
+
+    Money.destroy id
+
+    redirect '/money'
   end
 
 end
