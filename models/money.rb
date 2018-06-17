@@ -18,21 +18,21 @@ class Money
 
     money = results.map do |tuple|
       self.hydrate tuple
-
     end
+
   end
 
   def self.find id
 
     conn = self.open_connection
 
-    sql = "SELECT * FROM money WHERE id=#{id} LIMIT 1"
+    sql = "SELECT * FROM money WHERE id=#{ id } LIMIT 1"
 
     moneys = conn.exec(sql)
 
     money = self.hydrate moneys[0]
 
-    post
+    money
 
   end
 

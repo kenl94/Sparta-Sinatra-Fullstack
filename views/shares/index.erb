@@ -1,0 +1,11 @@
+<h1>Welcome to the Shares Index Page!</h1>
+
+<% @shares.each do |share| %>
+<div>
+  <h3>
+    <a href="/share/<%= share.id %>">
+    <%= share.stock_name %>
+    </a>
+  </h3>
+</div>
+<% end %>

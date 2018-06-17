@@ -32,7 +32,7 @@ class Shares
 
     share = self.hydrate shares[0]
 
-    post
+    share
 
   end
 

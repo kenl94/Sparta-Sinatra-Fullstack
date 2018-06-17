@@ -1,0 +1,9 @@
+<h1><%= @money.currency_code %></h1>
+<p><%= @money.currency %></p>
+<p><%= @money.money_amount %></p>
+<a href="/<%= @money.id %>/edit">edit</a>
+
+<form action="/<%= @money.id %>" method="post">
+  <input type="submit" value="Delete">
+  <input type="hidden" name="_method" value="DELETE">
+</form>

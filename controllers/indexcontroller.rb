@@ -11,8 +11,7 @@ class IndexController < Sinatra::Base
 
   get '/' do
 
-
-    erb :"money/index"
+    erb :'indexfolder/index'
   end
 
 

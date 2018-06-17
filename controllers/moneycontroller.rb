@@ -12,25 +12,39 @@ class MoneyController < Sinatra::Base
   get '/money' do
     @title = 'Money posts'
 
-    @posts = Money.all
-    
-    erb :"money/index"
+    @moneys = Money.all
+
+    erb :'money/index'
+
+
   end
 
   get '/money/new' do
-    "new page"
+
+
+    @moneys = Money.new
+
+    erb :'money/new'
   end
 
   get '/money/:id' do
     "show page"
+
+    id = params[:id].to_i
+
+    @money = Money.find id
+
+    erb :'money/show'
   end
 
   post '/money' do
     "create"
   end
 
-  get '/money/:id' do
-    "even"
+  get '/money/:id/edit' do
+    "edit"
+
+    erb :'edit.erb'
   end
 
   put '/money/:id' do

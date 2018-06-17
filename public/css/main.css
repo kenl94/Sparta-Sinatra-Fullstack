@@ -1,0 +1,17 @@
+h1 {
+  color: blue;
+  text-align: center; }
+
+body {
+  background-color: red; }
+
+nav {
+  text-align: center; }
+  nav a {
+    margin: 10%; }
+
+.col-md-6 img {
+  width: 80%;
+  height: 80%; }
+
+/*# sourceMappingURL=main.css.map */

@@ -16,27 +16,68 @@ class SharesController < Sinatra::Base
   end
 
   get '/shares/new' do
-    "new page"
+    @share = Shares.new
+
+    erb :'shares/new'
   end
 
   get '/shares/:id' do
-    "show page"
+    id = params[:id].to_i
+
+    @share = Shares.find id
+
+    erb :'shares/show'
   end
 
   post '/shares' do
-    "create"
+
+    share = Share.new
+
+    share.stock_name = params[:stock_name]
+    share.market_cap = params[:market_cap]
+    share.stock_market = params[:stock_market]
+    share.stock_sybl = params[:stock_sybl]
+
+    share.save
+
+    redirect '/shares'
+
+
   end
 
-  get '/shares/:id' do
-    "even"
+  get '/shares/:id/edit' do
+    id = params[:id].to_i
+
+    @share = Shares.find id
+
+    erb :'shares/edit'
   end
 
   put '/shares/:id' do
     "update"
+
+    id = params[:id].to_i
+
+    shares = Shares.find id
+
+    share.stock_name = params[:stock_name]
+    share.market_cap = params[:market_cap]
+    share.stock_market = params[:stock_market]
+    share.stock_sybl = params[:stock_sybl]
+
+    share.save
+
+    redirect '/shares'
   end
 
   delete '/shares/:id' do
-    "destroy"
+
+    id = params[:id].to_i
+
+    Shares.destroy id
+
+    redirect '/shares'
+
   end
 
 end

@@ -2,23 +2,22 @@
 <html>
 <head>
   <title><%= @title %></title>
-  <link rel="stylesheet" href="./css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-  <script src="./css/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
-  <script src="./js/app.js" charset="utf-8"></script>
-  <script src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="./css/main.css">
-
+  <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-   <%= erb(:'partials/nav') %>
+  <body>
 
-   <div class="container">
-     <div class="row">
+    <div class="container">
+      <%= erb(:'partials/nav') %>
+      <div class="row">
 
-       <%= yield %>
-     </div>
+        <%= yield %>
+      </div>
 
-   </div>
+    </div>
 
-</body>
+  </body>
 </html>

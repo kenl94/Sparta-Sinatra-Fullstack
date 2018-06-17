@@ -1,0 +1,10 @@
+<h1><%= @share.stock_name %></h1>
+<p><%= @share.stock_market %></p>
+<p><%= @share.stock_sybl %></p>
+<p><%= @share.market_cap %></p>
+<a href="/<%= @share.id %>/edit">edit</a>
+
+<form action="/<%= @share.id %>" method="post">
+  <input type="submit" value="Delete">
+  <input type="hidden" name="_method" value="DELETE">
+</form>
