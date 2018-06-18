@@ -30,7 +30,6 @@ class MoneyController < Sinatra::Base
   end
 
   get '/money/:id' do
-    "show page"
 
     id = params[:id].to_i
 

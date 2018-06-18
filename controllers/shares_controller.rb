@@ -10,7 +10,6 @@ class SharesController < Sinatra::Base
   end
 
   get '/shares' do
-    "index page"
     @shares = Share.all
     erb :'shares/index'
   end
@@ -54,7 +53,6 @@ class SharesController < Sinatra::Base
   end
 
   put '/shares/:id' do
-    "update"
 
     id = params[:id].to_i
 
