@@ -10,7 +10,7 @@ class IndexController < Sinatra::Base
   end
 
   get '/' do
-
+    
     erb :'indexfolder/index'
   end
 

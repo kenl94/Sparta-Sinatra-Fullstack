@@ -1,4 +1,4 @@
-class Shares
+class Share
 
   attr_accessor :id, :stock_market, :market_cap, :stock_name, :stock_sybl
 
@@ -38,20 +38,22 @@ class Shares
 
   def save
 
-    conn = Money.open_connection
+    conn = Share.open_connection
 
     if (!self.id)
       sql = "INSERT INTO shares (stock_market, market_cap, stock_name, stock_sybl) VALUES ('#{self.stock_market}', '#{self.market_cap}','#{self.stock_name}','stock_market')"
     else
-      sql = "UPDATE shares SET stock_market='#{self.stock_market}', market_cap='#{self.market_cap}', stock_name='#{self.stock_name}', stock_sybl='#{self.stock_sybl}'"
+      sql = "UPDATE shares SET stock_market='#{self.stock_market}', market_cap='#{self.market_cap}', stock_name='#{self.stock_name}', stock_sybl='#{self.stock_sybl}' WHERE id=#{self.id}"
     end
+
+    conn.exec(sql)
   end
 
 
-  def self.destroy
+  def self.destroy id
     conn = self.open_connection
 
-    sql = "DELETE FROM shares WHERE id='#{id}'"
+    sql = "DELETE FROM shares WHERE id=#{id}"
 
     conn.exec(sql)
 
@@ -59,13 +61,15 @@ class Shares
 
   def self.hydrate shares_data
 
-    share = Shares.new
+    share = Share.new
 
     share.id = shares_data['id']
     share.stock_market = shares_data['stock_market']
     share.market_cap = shares_data['market_cap']
     share.stock_name = shares_data['stock_name']
     share.stock_sybl = shares_data['stock_sybl']
+
+    share
 
   end
 

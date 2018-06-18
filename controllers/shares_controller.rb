@@ -11,28 +11,28 @@ class SharesController < Sinatra::Base
 
   get '/shares' do
     "index page"
-
+    @shares = Share.all
     erb :'shares/index'
   end
 
   get '/shares/new' do
-    @share = Shares.new
+    @share = Share.new
 
     erb :'shares/new'
   end
 
   get '/shares/:id' do
+
     id = params[:id].to_i
 
-    @share = Shares.find id
+    @share = Share.find id
 
     erb :'shares/show'
   end
 
-  post '/shares' do
+  post '/shares/' do
 
     share = Share.new
-
     share.stock_name = params[:stock_name]
     share.market_cap = params[:market_cap]
     share.stock_market = params[:stock_market]
@@ -48,7 +48,7 @@ class SharesController < Sinatra::Base
   get '/shares/:id/edit' do
     id = params[:id].to_i
 
-    @share = Shares.find id
+    @share = Share.find id
 
     erb :'shares/edit'
   end
@@ -58,7 +58,7 @@ class SharesController < Sinatra::Base
 
     id = params[:id].to_i
 
-    shares = Shares.find id
+    share = Share.find id
 
     share.stock_name = params[:stock_name]
     share.market_cap = params[:market_cap]
@@ -74,7 +74,7 @@ class SharesController < Sinatra::Base
 
     id = params[:id].to_i
 
-    Shares.destroy id
+    Share.destroy id
 
     redirect '/shares'
 

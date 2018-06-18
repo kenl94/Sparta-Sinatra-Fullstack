@@ -22,9 +22,11 @@ class MoneyController < Sinatra::Base
   get '/money/new' do
 
 
-    @moneys = Money.new
+    @money = Money.new
 
     erb :'money/new'
+
+
   end
 
   get '/money/:id' do
@@ -37,14 +39,14 @@ class MoneyController < Sinatra::Base
     erb :'money/show'
   end
 
-  post '/money' do
-    "create"
-
+  post '/money/' do
     money = Money.new
 
     money.money_amount = params[:money_amount]
     money.currency = params[:currency]
     money.currency_code = params[:currency_code]
+
+    puts money
 
     money.save
 
@@ -52,7 +54,6 @@ class MoneyController < Sinatra::Base
   end
 
   get '/money/:id/edit' do
-    "edit"
     id = params[:id].to_i
 
     @money = Money.find id

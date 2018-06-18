@@ -1,21 +1,25 @@
 h1 {
-  color: blue;
+  color: white;
   text-align: center;
 
 }
 
 body {
-  background-color: red;
+  background-color: black;
 }
 
 nav {
   text-align: center;
   a{
-    margin: 10%;
+    margin-left: 10px;
   }
 }
 
 .col-md-6 img {
   width: 80%;
   height: 80%;
+}
+
+p{
+  color: white;
 }

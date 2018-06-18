@@ -1,18 +1,21 @@
-<form class="" action="<%= @shares.id %>" method="post">
+<form action="/shares/<%= @share.id %>" method="post">
   <div>
     <label> Title </label>
-    <input type="text" name="title" value="<%= @shares.currency%>">
+    <input type="text" name="stock_name" value="<%= @share.stock_name%>">
   </div>
 
   <div>
     <label> Body </label>
-    <textarea name="body" rows="8" cols="80"><%= @moneys.money_amount %></textarea>
+    <textarea name="stock_market" ><%= @share.stock_market %></textarea>
+    <textarea name="stock_sybl"><%= @share.stock_sybl %></textarea>
+    <textarea name="market_cap" ><%= @share.market_cap %></textarea>
+
   </div>
 
   <div>
-    <input type="submit" value="Save Money Data">
+    <input type="submit" value="Save Share Data">
   </div>
-  <% if(@shares.id) %>
+  <% if(@share.id) %>
     <input type="hidden" name="_method" value="PUT">
   <% end %>
 </form>
