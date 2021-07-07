@@ -1,0 +1,8 @@
+<h1>Welcome to the Money Index Page!</h1>
+
+<% @moneys.each do |money| %>
+  <div>
+  <a href="/money/<%= money.id %>"><h3><%= money.currency %></a></h3>
+  <p><%= money.currency_code %></p>
+  </div>
+<% end %>

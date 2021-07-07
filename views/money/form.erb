@@ -1,0 +1,19 @@
+<form action="/money/<%= @money.id %>" method="post">
+  <div>
+    <label> Title </label>
+    <input type="text" name="currency" value="<%= @money.currency%>">
+  </div>
+
+  <div>
+    <label> Body </label>
+    <textarea name="money_amount" ><%= @money.money_amount %></textarea>
+    <textarea name="currency_code" ><%= @money.currency_code %></textarea>
+  </div>
+
+  <div>
+    <input type="submit" value="Save Money Data">
+  </div>
+  <% if(@money.id) %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>

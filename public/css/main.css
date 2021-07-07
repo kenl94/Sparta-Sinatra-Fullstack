@@ -1,0 +1,20 @@
+h1 {
+  color: white;
+  text-align: center; }
+
+body {
+  background-color: black; }
+
+nav {
+  text-align: center; }
+  nav a {
+    margin-left: 10px; }
+
+.col-md-6 img {
+  width: 80%;
+  height: 80%; }
+
+p {
+  color: white; }
+
+/*# sourceMappingURL=main.css.map */
